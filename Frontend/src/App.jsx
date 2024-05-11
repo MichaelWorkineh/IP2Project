@@ -3,11 +3,14 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+import { Button } from "flowbite-react";
+
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+      <Button>Click me</Button>;
       <h1 className= "text-[blue]">Hi chat!</h1>
       <div className="text-3xl font-bold underline">
         <a href="https://vitejs.dev" target="_blank">
