@@ -1,0 +1,292 @@
+ [
+  {
+    "image": "/image",
+    "title": "Google Sheets Masterclass",
+    "hours": "7.5 total hours",
+    "company": "Skill shares",
+    "Instructor": "Mark Lassoff",
+    "lastUpdated": "Updated 4/2024",
+    "rating": "4.8*",
+    "reviews": 2069,
+    "price": 13.99,
+    "originalPrice": 44.59,
+    "requirements": ["Basic computer skills"],
+    "description": "Master Google Sheets from beginner to advanced level.",
+    "audience": ["Office professionals", "Data analysts"],
+    "sections": [
+      {
+        "title": "Introduction to Google Sheets",
+        "lectures": 4,
+        "duration": "1h 30m",
+        "details": ["Getting Started", "Formatting Cells", "Data Analysis", "Collaboration Tools"]
+      },
+      {
+        "title": "Advanced Google Sheets Techniques",
+        "lectures": 6,
+        "duration": "2h 45m",
+        "details": ["Advanced Functions", "Data Visualization", "Automation with Apps Script", "Pivot Tables", "Sharing and Exporting"]
+      }
+    ]
+  },
+  {
+    "image": "/image",
+    "title": "Python Programming Basics",
+    "hours": "5 total hours",
+    "company": "Skill shares",
+    "Instructor": "Mark Lassoff",
+    "lastUpdated": "Updated 3/2024",
+    "rating": "4.5*",
+    "reviews": 1500,
+    "price": 9.99,
+    "originalPrice": 29.99,
+    "requirements": ["No prior programming experience required"],
+    "description": "Learn the fundamentals of Python programming.",
+    "audience": ["Beginners interested in programming"],
+    "sections": [
+      {
+        "title": "Python Basics",
+        "lectures": 3,
+        "duration": "1h 15m",
+        "details": ["Introduction to Python", "Variables and Data Types", "Control Structures"]
+      },
+      {
+        "title": "Intermediate Python Concepts",
+        "lectures": 4,
+        "duration": "1h 45m",
+        "details": ["Functions and Modules", "File Handling", "Object-Oriented Programming"]
+      }
+    ]
+  },
+  {
+    "image": "/image",
+    "title": "JavaScript Advanced Techniques",
+    "hours": "10 total hours",
+    "company": "Skill shares",
+    "Instructor": "Mark Lassoff",
+    "lastUpdated": "Updated 5/2024",
+    "rating": "4.9*",
+    "reviews": 3000,
+    "price": 19.99,
+    "originalPrice": 59.99,
+    "requirements": ["Basic understanding of JavaScript"],
+    "description": "Explore advanced JavaScript concepts and techniques.",
+    "audience": ["Web developers", "Frontend engineers"],
+    "sections": [
+      {
+        "title": "Advanced Functions and Closures",
+        "lectures": 5,
+        "duration": "2h 15m",
+        "details": ["Higher-Order Functions", "Asynchronous Programming", "Closures and Scope", "Functional Programming Concepts"]
+      },
+      {
+        "title": "Modern JavaScript Libraries",
+        "lectures": 5,
+        "duration": "2h 45m",
+        "details": ["ES6+ Features", "React and Vue.js Fundamentals", "State Management with Redux", "Building Single-Page Applications"]
+      }
+    ]
+  },
+  {
+    "image": "/image",
+    "title": "React Framework Mastery",
+    "hours": "8 total hours",
+    "company": "Skill shares",
+    "Instructor": "Mark Lassoff",
+    "lastUpdated": "Updated 4/2024",
+    "rating": "4.7*",
+    "reviews": 2500,
+    "price": 15.99,
+    "originalPrice": 49.99,
+    "requirements": ["Basic knowledge of HTML/CSS", "Familiarity with JavaScript"],
+    "description": "Become proficient in building web applications with React.",
+    "audience": ["Web developers", "UI/UX designers"],
+    "sections": [
+      {
+        "title": "React Basics and Components",
+        "lectures": 4,
+        "duration": "1h 45m",
+        "details": ["Introduction to React", "Components and Props", "State and Lifecycle", "Handling Events"]
+      },
+      {
+        "title": "Advanced React Concepts",
+        "lectures": 4,
+        "duration": "2h 15m",
+        "details": ["React Hooks", "Context API", "Routing with React Router", "State Management with Redux"]
+      }
+    ]
+  },
+  {
+    "image": "/image",
+    "title": "Web Development Bootcamp",
+    "hours": "15 total hours",
+    "company": "Skill shares",
+    "Instructor": "Mark Lassoff",
+    "lastUpdated": "Updated 5/2024",
+    "rating": "4.9*",
+    "reviews": 4000,
+    "price": 24.99,
+    "originalPrice": 79.99,
+    "requirements": ["Basic understanding of HTML/CSS"],
+    "description": "Comprehensive bootcamp covering frontend and backend web development.",
+    "audience": ["Aspiring web developers", "Computer science students"],
+    "sections": [
+      {
+        "title": "Frontend Development Fundamentals",
+        "lectures": 6,
+        "duration": "3h 30m",
+        "details": ["HTML5 and CSS3 Basics", "Responsive Design", "JavaScript Fundamentals", "DOM Manipulation"]
+      },
+      {
+        "title": "Backend Development with Node.js",
+        "lectures": 8,
+        "duration": "4h 30m",
+        "details": ["Node.js Basics", "Express.js Framework", "RESTful APIs", "Database Integration"]
+      }
+    ]
+  },
+  {
+    "image": "/image",
+    "title": "Data Science Fundamentals",
+    "hours": "12 total hours",
+    "company": "Skill shares",
+    "Instructor": "Mark Lassoff",
+    "lastUpdated": "Updated 4/2024",
+    "rating": "4.6*",
+    "reviews": 1800,
+    "price": 17.99,
+    "originalPrice": 54.99,
+    "requirements": ["Basic understanding of statistics"],
+    "description": "Learn foundational concepts and tools in data science.",
+    "audience": ["Data enthusiasts", "Analytics professionals"],
+    "sections": [
+      {
+        "title": "Introduction to Data Science",
+        "lectures": 5,
+        "duration": "2h 15m",
+        "details": ["Data Exploration", "Statistical Analysis", "Data Visualization"]
+      },
+      {
+        "title": "Machine Learning Basics",
+        "lectures": 7,
+        "duration": "3h 45m",
+        "details": ["Supervised Learning", "Unsupervised Learning", "Model Evaluation and Optimization"]
+      }
+    ]
+  },
+  {
+    "image": "/image",
+    "title": "UI/UX Design Essentials",
+    "hours": "6 total hours",
+    "company": "Skill shares",
+    "Instructor": "Mark Lassoff",
+    "lastUpdated": "Updated 3/2024",
+    "rating": "4.4*",
+    "reviews": 1200,
+    "price": 11.99,
+    "originalPrice": 34.99,
+    "requirements": ["Creative mindset"],
+    "description": "Explore the principles and techniques of UI/UX design.",
+    "audience": ["Aspiring designers", "Web developers"],
+    "sections": [
+      {
+        "title": "Fundamentals of UI Design",
+        "lectures": 3,
+        "duration": "1h 30m",
+        "details": ["User Interface Basics", "Design Principles", "Wireframing and Prototyping"]
+      },
+      {
+        "title": "UX Design Strategies",
+        "lectures": 3,
+        "duration": "1h 30m",
+        "details": ["User Experience Concepts", "Usability Testing", "Improving User Interactions"]
+      }
+    ]
+  },
+  {
+    "image": "/image",
+    "title": "Node.js Server-side Development",
+    "hours": "9 total hours",
+    "company": "Skill shares",
+    "Instructor": "Mark Lassoff",
+    "lastUpdated": "Updated 5/2024",
+    "rating": "4.8*",
+    "reviews": 2800,
+    "price": 18.99,
+    "originalPrice": 59.99,
+    "requirements": ["Basic JavaScript knowledge"],
+    "description": "Master server-side development with Node.js and Express.",
+    "audience": ["Backend developers", "Full-stack engineers"],
+    "sections": [
+      {
+        "title": "Node.js Fundamentals",
+        "lectures": 4,
+        "duration": "2h",
+        "details": ["Node.js Basics", "Asynchronous Programming", "Express.js Framework"]
+      },
+      {
+        "title": "RESTful API Development",
+        "lectures": 5,
+        "duration": "3h",
+        "details": ["Building APIs with Express", "Database Integration", "Authentication and Authorization"]
+      }
+    ]
+  },
+  {
+    "image": "/image",
+    "title": "Mobile App Development with React Native",
+    "hours": "10 total hours",
+    "company": "Skill shares",
+    "Instructor": "Mark Lassoff",
+    "lastUpdated": "Updated 4/2024",
+    "rating": "4.7*",
+    "reviews": 2200,
+    "price": 16.99,
+    "originalPrice": 49.99,
+    "requirements": ["Experience with React"],
+    "description": "Build cross-platform mobile apps using React Native.",
+    "audience": ["Mobile developers", "Frontend engineers"],
+    "sections": [
+      {
+        "title": "Getting Started with React Native",
+        "lectures": 4,
+        "duration": "2h",
+        "details": ["Setup and Environment", "Components and Navigation"]
+      },
+      {
+        "title": "Building Mobile Apps",
+        "lectures": 6,
+        "duration": "4h",
+        "details": ["Styling and Layout", "State Management", "API Integration"]
+      }
+    ]
+  },
+  {
+    "image": "/image",
+    "title": "Cybersecurity Essentials",
+    "hours": "8 total hours",
+    "company": "Skill shares",
+    "Instructor": "Mark Lassoff",
+    "lastUpdated": "Updated 3/2024",
+    "rating": "4.5*",
+    "reviews": 1600,
+    "price": 14.99,
+    "originalPrice": 39.99,
+    "requirements": ["Basic understanding of networking"],
+    "description": "Learn essential cybersecurity concepts and practices.",
+    "audience": ["IT professionals", "Security enthusiasts"],
+    "sections": [
+      {
+        "title": "Cybersecurity Fundamentals",
+        "lectures": 4,
+        "duration": "2h",
+        "details": ["Threat Landscape", "Network Security", "Encryption Basics"]
+      },
+      {
+        "title": "Protecting Systems and Data",
+        "lectures": 4,
+        "duration": "2h",
+        "details": ["Access Control", "Security Tools and Techniques", "Incident Response"]
+      }
+    ]
+  }
+]
