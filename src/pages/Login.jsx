@@ -56,47 +56,63 @@ const onGoogleSignIn = async(event) => {
           {userLoggedIn && (<Navigate to={'/'} replace={true}/>)}
         <div className='w-full flex justify-center mt-18 mb-36'>
         <form  onSubmit={onSubmit} className='w-[35%] h-[60%] bg-[] flex-col p-12 rounded shadow-custom'>
-            
+            <div className='m-2'>
+                <div className='w-full border mb-2 border-black h-10 p-5 flex items-center font-bold font-sans'>
+                <img src="../src/images/google.png" className='object-contain w-7 mr-2 p-0'/>
+                Continue with Google
+            </div>
+            <div className='w-full border mb-2 border-black h-10 p-5 flex items-center font-bold font-sans'>
+                <img src="../src/images/communication_15047435.png" className='object-contain w-7 mr-2 p-0'/>
+                Continue with Facebook
+            </div>
+            <div className='w-full border border-black h-10 p-5 flex items-center font-bold font-sans'>
+                <img src="../src/images/apple-logo_747.png" className='object-contain w-7 mr-2 p-0'/>
+                Continue with Apple
+            </div>
+            </div>
             <div className='w-full flex flex-col  p-2 justify-between '>
-                <h3 className='text-2xl font-semibold mb-4'>Login</h3>
-                <div className='w-full flex flex-col'>
-                    <label className='relative left-0 text-blue font-semibold'>Email Adress</label>
-                    <input type="email"
+                <div className='w-full flex flex-col relative'>
+                <label
+              className={`absolute left-3 transition-all ${
+                email ? 'text-blue -top-3 text-sm' : 'top-2 text-base'
+              } font-semibold pointer-events-none`}
+            >
+              Email
+            </label><input type="email"
                         autoComplete='off'
                         name='email'
                         placeholder="Email Adress"
                         onChange={handleEmailChange}
-                        className= 'peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900
-                        focus:outline-none focus:border-blue'/>
+                        className= 'peer placeholder-transparent h-10 w-full border border-black text-gray-900
+                        '/>
                 </div>
-                <div className='w-full flex flex-col mt-3'>
-                    <label for="password" className='relative left-0 text-blue font-semibold'>Password</label>
+                <div className='w-full flex flex-col mt-2 relative'>
+                        <label
+                    className={`absolute left-3 transition-all ${
+                        password ? 'text-blue -top-3 text-sm' : 'top-2 text-base'
+                    } font-semibold pointer-events-none`}
+                    >
+                    Password
+                    </label>
                     <input type="password"
                         name='password'
                         autoComplete='off'
                         placeholder="Email Adress"
                         onChange={handlePasswordChange}
-                        className= 'peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900
-                        focus:outline-none focus:border-blue'/>
+                        className= 'peer placeholder-transparent h-10 w-full border border-black text-gray-900'/>
                 </div>
                 {errorMessage && (<span className='text-red-600 font-bold'>{errorMessage}</span>)}
-                <div className='relative mt-5'>
-                    <button type='submit' disabled={isSigningIn} className={`w-full py-3 bg-blue text-black font-bold border border-gray-800 ${isSigningIn}`}>{isSigningIn ? 'Signing In...' : 'Sign In'}</button>
+                <div className='relative mt-2'>
+                    <button type='submit' disabled={isSigningIn} className={`w-full py-2 bg-purple-600 text-white font-bold border border-gray-300 ${isSigningIn}`}>{isSigningIn ? 'Signing In...' : 'Sign In'}</button>
                 </div >
-                <div className='mt-5 flex items-center justify-center  py-2 w-full border border-[#4285F4] rounded'>
-                <img
-                        src="https://developers.google.com/identity/images/g-logo.png"
-                        alt="Google Logo"
-                        className="w-5 h-5 mr-2"/>
-                <button  
-                        className='bg-white text-[#4285F4] font-bold'
-                        disabled={isSigningIn}
-                        onClick={(e) =>{onGoogleSignIn(e)}}>
-                            Sign Up with Google</button>
-                </div>  
+                <div className='flex justify-center mt-2 '>
+                    <p>or <span className='text-blue-800 font-bold'>Forgot Password</span></p>
+                </div>
               </div>
-            <div className='w-full flex items-center justify-center'>
-                <p className='text-sm font-normal'>Already have an account? <Link to = '/sign-up' className='font-semibold underline text-blue'>SignUp</Link></p>
+            <div className='w-full flex items-center justify-center border-t border-gray-300'>
+                <p className='text-sm font-normal'>Don't have an account? <Link to = '/sign-up' className='font-semibold underline text-blue-800'>SignUp <br/>
+                    <span>Login with your organaization</span>
+                </Link></p>
             </div>
         </form>
     </div>

@@ -53,7 +53,7 @@ const HomePage = () => {
   return (
     <div className='p-20'>
         <SiteMoto className="flex justify-center"/>
-        <HugeVideoLessons courses={courses}/>
+        <HugeVideoLessons courses={courses} className=""/>
         <LGVideoLessons courses = {courses}/>
         <LGVideoLessons courses = {courses}/>
         <LGVideoLessons courses = {courses}/>
