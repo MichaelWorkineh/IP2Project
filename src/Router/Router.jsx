@@ -8,6 +8,7 @@ import Signup from '../pages/Signup';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CoursePage from '../pages/CoursePage';
+import VideoUpload from '../pages/VideoUpload';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,16 @@ const router = createBrowserRouter([
       </div>
     ),
   },
+  {
+    path: '/upload',
+    element: (
+      <div>
+        <Navbar />
+        <VideoUpload />
+        <Footer />
+      </div>
+    ),
+  }
 ]);
 
 export default router;
