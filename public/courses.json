@@ -1,0 +1,53 @@
+ [
+  {
+    "id": 1,
+    "image": "/image",
+    "title": "Google Sheets Masterclass",
+    "hours": "7.5 total hours",
+    "company": "Skill shares",
+    "Instructor": "Mark Lassoff",
+    "lastUpdated": "Updated 4/2024",
+    "rating": "4.8*",
+    "reviews": 2069,
+    "price": 13.99,
+    "originalPrice": 44.59,
+    "requirements": ["Basic computer skills"],
+    "description": "Master Google Sheets from beginner to advanced level.",
+    "audience": ["Office professionals", "Data analysts"]
+    
+  },
+  {
+    "id": 2,
+    "image": "/image",
+    "title": "Python Programming Basics",
+    "hours": "5 total hours",
+    "company": "Skill shares",
+    "Instructor": "Mark Lassoff",
+    "lastUpdated": "Updated 3/2024",
+    "rating": "4.5*",
+    "reviews": 1500,
+    "price": 9.99,
+    "originalPrice": 29.99,
+    "requirements": ["No prior programming experience required"],
+    "description": "Learn the fundamentals of Python programming.",
+    "audience": ["Beginners interested in programming"]
+    
+  },
+  {
+    "id": 3,
+    "image": "/image",
+    "title": "JavaScript Advanced Techniques",
+    "hours": "10 total hours",
+    "company": "Skill shares",
+    "Instructor": "Mark Lassoff",
+    "lastUpdated": "Updated 5/2024",
+    "rating": "4.9*",
+    "reviews": 3000,
+    "price": 19.99,
+    "originalPrice": 59.99,
+    "requirements": ["Basic understanding of JavaScript"],
+    "description": "Explore advanced JavaScript concepts and techniques.",
+    "audience": ["Web developers", "Frontend engineers"]
+    
+  }
+]
