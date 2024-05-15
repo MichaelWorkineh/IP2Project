@@ -9,50 +9,65 @@ import UserRatings from '../components/UserRatings'
 import LGVideoLessons from '../components/videoDisplay/LGVideoLessons'
 import SetupProfile from '../components/popups/SetupProfile'
 import sampleVid from '../imgs/sampleVid.mp4'
+import { useParams } from 'react-router-dom'
 
 
 const CoursePage = () => {
 
 
     const [courses, setCourses] = useState([]);
+    const [courseData, setCourseData] = useState(null);
     const [videos, setVideos] = useState([]);
     const [isSticky, setIsSticky] = useState(false);
     const [isAbuse, setIsAbuse] = useState(false);
     const [showContent, setShowContent] = useState(0);
+    const {id} = useParams();
+    const courseId = id;
 
     const toggleAbuse =()=> {
         setIsAbuse(!isAbuse);
     }
 
+
     useEffect(()=> {
-        const fetchCourses = async ()=> {
-            const response = await fetch("courses.json");
-            const vidResponse = await fetch("sampleVids.json");
-            const vidData = await vidResponse.json();
-            const courseData = await response.json();
-            setCourses(courseData);
-            setVideos(vidData);
-        };
-
-        const handleScroll = () => {
-            const scrollTop = window.scrollY ;
-            setIsSticky(scrollTop > 100);
-            setShowContent(scrollTop);
-        };
-
-        console.log(videos);
-        window.addEventListener('scroll', handleScroll);
-
-            return () => {
-                window.removeEventListener('scroll', handleScroll);
-            fetchCourses();
-            };
+        async function fetchCourses() {
+            try {
+              const response = await fetch('/courses.json');
+              const data = await response.json();
+              setCourses(data);
+              return data;
+            } catch (error) {
+              console.error('Error fetching courses:', error);
+              return [];
+            }
+          }
+           fetchCourses();
 
 
+         
     }, []);
 
     console.log(courses);
-  return (
+    
+    
+    useEffect(() => {
+        const handleScroll = () => {
+          const scrollTop = window.scrollY;
+          setIsSticky(scrollTop > 100);
+          setShowContent(scrollTop);
+        };
+      
+        window.addEventListener('scroll', handleScroll);
+      
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, []);
+      
+     
+
+      console.log(id);
+      return (
     <div className=''>
     {showContent ? (
         <div className={`${isSticky ? 'fixed top-0 left-0 w-full flex flex-col bg-gray-700 p-2' : 'fixed top-0 left-0 w-full flex flex-col bg-gray-700 p-2'} transition-all  duration-300 ease-in-out fixed top-0 left-0 w-full flex bg-gray-700 text-white`}>
