@@ -42,12 +42,18 @@ const CoursePage = () => {
             }
           }
            fetchCourses();
-
-
          
     }, []);
 
-    console.log(courses);
+    useEffect(() => {
+        if (courseId && courses.length > 0) {
+            const foundCourse = courses.find(course => course.id === courseId);
+            setCourseData(foundCourse);
+        }
+    }, [courseId, courses]);
+
+    console.log(courseData);
+    console.log(courseId);
     
     
     useEffect(() => {

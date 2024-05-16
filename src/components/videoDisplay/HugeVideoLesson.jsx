@@ -11,7 +11,7 @@ const HugeVideoLessons = ({courses}) => {
   const visibleCourses = showAllCourses ? courses.length : 1;
 
   return (
-    <div className=''>
+    <div className='m-6'>
     <h1 className='text-3xl font-bold'>More Courses by Colt Steele</h1>
     <div className='flex'>
       {courses.slice(0,visibleCourses).map((course,index)=> (
