@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import sampleVid from '../../imgs/sampleVid.mp4'
 
 const HugeVideoLessons = ({courses}) => {
 
@@ -11,13 +12,14 @@ const HugeVideoLessons = ({courses}) => {
   const visibleCourses = showAllCourses ? courses.length : 1;
 
   return (
-    <div className=''>
+    <div className='m-6'>
     <h1 className='text-3xl font-bold'>More Courses by Colt Steele</h1>
     <div className='flex'>
       {courses.slice(0,visibleCourses).map((course,index)=> (
         <div key ={index} className='p-2  border-black-200 w-full'>
         <div className='flex flex-row w-[90%] border border-gray-300 rounded-sm p-8 m-3'>
           <div className='bg-blue-500 w-[530px] h-64 border border-gray-200 border-b-2'>
+            <video src={sampleVid}></video>
           </div>
           <div className='p-6'>
               <h1 className='font-bold text-3xl'>{course.title}</h1>
