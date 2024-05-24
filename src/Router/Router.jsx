@@ -12,6 +12,7 @@ import VideoUpload from '../pages/VideoUpload';
 import MyLearning from '../pages/MyLearning';
 import ShoppingCart from '../pages/ShoppingCart';
 import Checkout from '../pages/Checkout';
+import Course from '../pages/Course';
 
 const router = createBrowserRouter([
   {
@@ -87,6 +88,14 @@ const router = createBrowserRouter([
       <div>
         <Navbar />
         <Checkout />
+        <Footer />
+      </div>
+    ),
+  },{
+    path: '/course/:id',
+    element: (
+      <div>
+        <Course />
         <Footer />
       </div>
     ),

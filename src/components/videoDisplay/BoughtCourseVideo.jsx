@@ -72,7 +72,7 @@ function Item({ course }) {
       }}
       elevation={0}
     >
-      <Link to ={`/courPage/${course._id}`}> 
+      <Link to ={`/course/${course._id}`}> 
     <div className='p-4 border border-black-200'>
               <div className='flex flex-col w-full text-black' >
                 <div className=' border border-gray-200' >

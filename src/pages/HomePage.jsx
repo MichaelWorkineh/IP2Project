@@ -21,13 +21,13 @@ const HomePage = () => {
     useEffect(()=> {
         const fetchCourses = async () => {
             try {
-              const response = await fetch("/courses.json");
+              const response = await fetch("http://localhost:5000/courses");
               if (!response.ok) {
                 throw new Error("Failed to fetch course data");
               }
-              const courseData = await response.json();
-              console.log("Course data:", courseData);
-              setCourses(courseData);
+              const courses = await response.json();
+              console.log("Course data:", courses);
+              setCourses(courses);
             } catch (error) {
               console.error(error);
             }
