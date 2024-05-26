@@ -16,7 +16,8 @@ const MDVideoLessons = ({courses}) => {
                   {courses.slice(0,visibleCourses).map((course,index)=> (
                     <div key ={index} className='p-5  border-black-200 flex justify-between'>
                     <div className='flex'>
-                      <div className='bg-blue-500 w-40 h-28 border border-gray-200 border-b-2'>
+                      <div className='bg-blue-500 w-42 h-28 border border-gray-200 border-b-2'>
+                        <video src={`http://localhost:5000/${course.video}`} className='w-full h-full'></video>
                       </div>
                       <div className='p-2'>
                           <h1 className='font-bold'>{course.title}</h1>
