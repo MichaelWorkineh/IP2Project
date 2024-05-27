@@ -11,6 +11,7 @@ import SetupProfile from '../components/popups/SetupProfile';
 import sampleVid from '../imgs/sampleVid.mp4';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Rating from '../components/Rating';
 
 const CoursePage = () => {
     const [courses, setCourses] = useState([]);
@@ -67,6 +68,19 @@ const CoursePage = () => {
         };
     }, []);
 
+    
+  // Function to format the last updated date
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    // Extract year, month, and day
+    const year = date.getFullYear();
+    const month = date.toLocaleString('default', { month: 'long' });
+    const day = date.getDate();
+    // Return formatted date string
+    return `${month} ${day}, ${year}`;
+  };
+
+
     if (!courseData) {
         return <div>Loading...</div>;
     }
@@ -75,11 +89,11 @@ const CoursePage = () => {
         <div className=''>
             {showContent ? (
                 <div className={`${isSticky ? 'fixed top-0 left-0 w-full flex flex-col bg-gray-700 p-2' : 'fixed top-0 left-0 w-full flex flex-col bg-gray-700 p-2'} transition-all  duration-300 ease-in-out fixed top-0 left-0 w-full flex bg-gray-700 text-white`}>
-                    <h1 className='lg:text-sm font-bold mt-2 ml-4'>{courseData.title}</h1>
-                    <div className='mx-2 text-sm'>
-                        <span className='text-yellow-500 mx-2'>{courseData.rating} </span>
-                        <span className='text-blue-500 underline mx-2'>({courseData.reviews})</span>
-                        <span>{courseData.enrolledStudents} students</span>
+                    <h1 className='lg:text-sm font-bold mt-1 ml-4'>{courseData.title}</h1>
+                    <div className='px-2 text-sm flex'>
+                        <span className='text-yellow-500 -mt-1'><Rating defaultValue={courseData.rating}/> </span>
+                        <span className='text-blue-500 underline mt-1 mr-2'>({courseData.reviews} ratings) </span>
+                        <span className='mt-1'>{courseData.enrolledStudents} students</span>
                     </div>
                 </div>
             ) : (
@@ -91,16 +105,16 @@ const CoursePage = () => {
                         <div className='pt-10 w-[70%]'>
                  <h1 className='lg:text-4xl font-bold'>{courseData.title}</h1>
                 <p className='lg:pt-4 lg:text-xl'>{courseData.description}</p>
-                <div className='lg:pt-4'>
-                    <span className='text-yellow-500 mx-2'>{courseData.rating} </span>
-                    <span className='text-blue-500 underline mx-2'>{courseData.reviews}</span>
-                    <span>23,0000 students</span>
+                <div className='lg:pt-2 flex'>
+                    <span className='text-yellow-500 mx-1'><Rating defaultValue={courseData.rating}/> </span>
+                    <span className='text-blue-300 underline m-2 mx-0'>({courseData.reviews} ratings)</span>
+                    <span className='m-2 mx-2'>23,0000 students</span>
                 </div>
-                <p className='lg:pt-3'>created by <span className='text-blue-500 underline mr-2'>{courseData.company}</span></p>
+                <p className='lg:pt-0 mx-3'>created by <span className='text-blue-300 underline mr-2'>{courseData.company}</span><span>,{courseData.instructor.userEmail}</span></p>
                 <div className='lg:pt-3'>
-                    <span className='mx-4'>{courseData.lastUpdated}</span>
-                    <span className='mx-4'>English</span>
-                    <span className='mx-4'>English [auto]</span>
+                    <span className='mx-4'>{formatDate(courseData.lastUpdated)}</span>
+                    <span className='mx-2'>English</span>
+                    <span className='mx-2'>English [auto]</span>
                 </div>
 
             </div> 

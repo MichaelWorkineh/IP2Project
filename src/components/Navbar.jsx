@@ -1,12 +1,14 @@
 import React, {useState,useEffect} from 'react'
 import alarm from '../imgs/alarm.png'
 import heart from '../imgs/heart.png'
-import cart from '../imgs/shopping-cart.png'
+import cart from '../imgs/cart.svg'
 import udemyLogo from '../imgs/UDMY_BIG.png'
 import { doSignOut } from '../firebase/auth'
 import { useAuth } from '../contexts/AuthProvider'
 import { Link } from 'react-router-dom'
 import { fetchUserData } from '../firebase/auth'
+import Categories from './Categories'
+import { FiSearch } from 'react-icons/fi'
 
 const Navbar = () => {
     const {currentUser} = useAuth();
@@ -60,21 +62,26 @@ const Navbar = () => {
     <div className='mt-2 p-2 border-b-2 '>
             <nav className='text-sm font-semibold '>
                 <div className='flex  justify-evenly'>
-                    <div className=''>
-                        <img src={udemyLogo} alt="" className='w-28 h-11' />
+                    <div className='mt-3'>
+                        <Link to={'/'}><img src={udemyLogo} alt="" className='w-18 h-8' /></Link>
                     </div>
                     <div className=' mt-5'>
                         Categories
                     </div>
                     {activeCatg ? (
-                        <div className="absolute right-6 top-20 mt-0 w-auto bg-white border border-gray-200 rounded-sm shadow-lg z-10">
+                        <div className="absolute right-6 top-20 mt-0 w-auto bg-red-500 border border-gray-200 rounded-sm shadow-lg z-50">
                         </div>
                     ) : (<></>)}
                     
-                    <div>
-                        <input type="text" className='border border-gray-600 rounded-full py-3 px-44 mb-1 items-left' placeholder='search anything'/>
+                    <div className='relative flex items-center'>
+                    <input
+                        type='text'
+                        placeholder='Search for anything'
+                        className='outline-none border-black border rounded-3xl w-[600px] h-12 text-base pl-12 bg-slate-100'
+                    />
+                    <FiSearch className='text-gray-500 absolute left-3' style={{ fontSize: '24px' }} />
                     </div>
-                    <div   onMouseDown={toggleUdeBussiness} className=' mt-5'>Udemy Bussiness</div>
+                    <div   onMouseEnter={toggleUdeBussiness} onMouseLeave={toggleUdeTech} className=' mt-5'>Udemy Bussiness</div>
                     {activeBiss ? (
                         <div  className="absolute right-96 top-20 mt-0 w-[270px] bg-white border border-gray-200 rounded-sm shadow-lg z-10">
                             <div>
@@ -84,7 +91,7 @@ const Navbar = () => {
                         </div>
                     ) : (<></>)}
                     
-                    <div  onMouseDown={toggleUdeTech} className=' mt-5'>Tech on Udemy</div>
+                    <div  onMouseEnter={toggleUdeTech} onMouseLeave={toggleUdeTech} className=' mt-5'>Tech on Udemy</div>
                     {activeTech ? (
                         <div className="absolute right-56 top-20 mt-0 w-64 bg-white border border-gray-200 rounded-sm shadow-lg z-10">
                             <div>
@@ -102,16 +109,15 @@ const Navbar = () => {
                             </svg>
                         </Link>
                     </div>
-                    <div className='w-6 h-6 mt-5 cursor-pointer'>
-                        <Link to={"/shoppingCart"}>
-                            <img src={cart} alt="" />
-                        </Link>
+                    <div className='mt-4 relative'>
+                        <img src={cart} alt="" className='w-10 h-8'/>
+                        <div className='absolute -top-1 -right-2 bg-purple-500 rounded-full px-2 py-1/4 text-white'>2</div>
                     </div>
                     <div className='w-6 h-6 mt-5 cursor-pointer'><img src={alarm} alt="" /></div>
                     <div className='text-base text-primary font-medium space-x-1 hidden lg:block mr-0'>
                 {   userLoggedIn ? (
                     <div className='flex gap-4 mt-2'>
-                            <div onMouseDown={toggleAccMenu}>
+                            <div onMouseEnter={toggleAccMenu} >
                             <div className='bg-black text-white rounded-full p-2 mt-1' >{firstNameInitial}{lastNameInitial}</div>
                             <Link to={"/"} className='text-black'></Link>
                         </div>

@@ -1,11 +1,12 @@
 import React from 'react'
+import clock from '../imgs/clock.svg'
 
 const Reminder = () => {
   return (
     <div className='border border-gray-400 m-16 p-4'>
         <div className='flex justify-arround'>
-                <div className='bg-blue-600 w-20 h-10 rounded-full mt-2'>
-
+                <div className=' w-32 h-12 mt-4'>
+                    <img src={clock} alt="" />
                 </div>
                 <div className='pl-6 flex flex-wrap'>
                     <h1 className='font-bold'>Schedule your learning Time</h1>

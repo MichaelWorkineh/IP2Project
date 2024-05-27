@@ -15,7 +15,6 @@ const CategoriesBar = () => {
       name: 'IT & Software',
       subcategories: ['Network & Security', 'Hardware', 'Operating Systems', 'Other IT & Software']
     },
-    // Add more categories and subcategories as needed
   ];
 
   const [activeCategory, setActiveCategory] = useState(null);
@@ -36,7 +35,7 @@ const CategoriesBar = () => {
               {category.name}
             </button>
             {activeCategory === index && (
-              <ul className="absolute mt-2 p-2 bg-gray-600 text-white font-bold shadow-lg rounded-md z-50 flex space-x-4 justify-center" style= {{width: '100vw', left: 0}}>
+              <ul className="-ml-8 absolute mt-2 p-2 bg-gray-600 text-white font-bold shadow-lg rounded-md z-50 flex space-x-4 justify-center" style= {{width: '100vw', left: 0}}>
                 {category.subcategories.map((subcategory) => (
                   <li key={subcategory} className="py-1 px-2 cursor-pointer rounded">
                     {subcategory}

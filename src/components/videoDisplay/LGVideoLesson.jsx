@@ -4,6 +4,7 @@ import Carousel from "react-material-ui-carousel";
 import { NavigateBefore, NavigateNext } from "@mui/icons-material"; // Import icons
 import {Link} from 'react-router-dom';
 import sampleVid from '../../imgs/sampleVid.mp4'
+import Rating from "../Rating";
 const Destinycard = ({courses}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const numberOfItemsPerPage = 4;
@@ -76,21 +77,19 @@ function Item({ course }) {
     <div className='p-4 border border-black-200'>
               <div className='flex flex-col w-full text-black' >
                 <div className=' border border-gray-200' >
-                <video controls style={{maxHeight: '200px', maxWidth: ''}}>
-              <source src={`http://localhost:5000/${course.video}`} type="video/mp4" />
+                <video src={`http://localhost:5000/${course.video}`} style={{maxHeight: '200px', maxWidth: ''}}>
               Your browser does not support the video tag.
             </video>
-               {course.video}
                 </div>
                 <div className='p-1'>
                   <h1 className='font-bold'>{course.title}</h1>
-                  <span className='text-sm text-gray-500 text-black'>{course.instructor}Ayele</span>
-                  <div className='text-sm'>
-                    <span className='text-red-600 font-bold'>{course.rating}</span>
-                    <span> ({course.reviews})</span>
+                  <span className='text-sm text-gray-500 text-black'>By: {course.instructor.userEmail}</span>
+                  <div className='text-sm flex'>
+                    <span className='text-red-600 font-bold'><Rating defaultValue={course.rating}/></span>
+                    <span className="mt-2"> ({course.reviews})</span>
+                    <div className='text-sm text-gray-400 mt-2 ml-2'>{course.hours} course hours</div>
                   </div>
-                  <div className='text-sm text-gray-400'>{course.hours} course hours</div>
-                  <span className='font-bold text-tiny'>{course.price}</span>
+                  <span className='font-bold text-tiny'>${course.price}</span>
                 </div>
               </div>
               <div>
