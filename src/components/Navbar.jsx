@@ -81,7 +81,7 @@ const Navbar = () => {
                     />
                     <FiSearch className='text-gray-500 absolute left-3' style={{ fontSize: '24px' }} />
                     </div>
-                    <div   onMouseEnter={toggleUdeBussiness} onMouseLeave={toggleUdeTech} className=' mt-5'>Udemy Bussiness</div>
+                    <div   onMouseDown={toggleUdeBussiness} onMouseLeave={toggleUdeTech} className=' mt-5'>Udemy Bussiness</div>
                     {activeBiss ? (
                         <div  className="absolute right-96 top-20 mt-0 w-[270px] bg-white border border-gray-200 rounded-sm shadow-lg z-10">
                             <div>
@@ -91,7 +91,7 @@ const Navbar = () => {
                         </div>
                     ) : (<></>)}
                     
-                    <div  onMouseEnter={toggleUdeTech} onMouseLeave={toggleUdeTech} className=' mt-5'>Tech on Udemy</div>
+                    <div  onMouseDown={toggleUdeTech} onMouseLeave={toggleUdeTech} className=' mt-5'>Tech on Udemy</div>
                     {activeTech ? (
                         <div className="absolute right-56 top-20 mt-0 w-64 bg-white border border-gray-200 rounded-sm shadow-lg z-10">
                             <div>
@@ -117,7 +117,7 @@ const Navbar = () => {
                     <div className='text-base text-primary font-medium space-x-1 hidden lg:block mr-0'>
                 {   userLoggedIn ? (
                     <div className='flex gap-4 mt-2'>
-                            <div onMouseEnter={toggleAccMenu} >
+                            <div onMouseDown={toggleAccMenu} >
                             <div className='bg-black text-white rounded-full p-2 mt-1' >{firstNameInitial}{lastNameInitial}</div>
                             <Link to={"/"} className='text-black'></Link>
                         </div>

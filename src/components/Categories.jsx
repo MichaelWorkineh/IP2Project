@@ -1,7 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 
 const CategoriesBar = () => {
+    const [ccategories, setCategories] = useState([]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Fetch courses
+        const coursesResponse = await fetch("http://localhost:5000/courses");
+        if (!coursesResponse.ok) {
+          throw new Error("Failed to fetch course data");
+        }
+        const courses = await coursesResponse.json();
+        console.log("Course data:", courses);
+        setCategories(courses.categories);
+  
+       } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    fetchData();
+  }, []);
+ 
   const categories = [
     {
       name: 'Development',

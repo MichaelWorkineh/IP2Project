@@ -28,6 +28,7 @@ const CourseContent = ({courseData}) => {
       };
     
 
+      console.log(courseData.whoThisCourse);
     
 
      const items= courseData.videoDescription.chapters;
@@ -85,10 +86,12 @@ const CourseContent = ({courseData}) => {
             </div>
             <div font-bold text-2xl>
                 <h1 className='font-bold text-2xl m-2'>Who this course is for</h1>
-                <div className='text-sm'>
-                    <p>People working in an office environment who must use a spreadsheet program</p>
-                    <p>People working in an office environment who must use a spreadsheet program</p>
-                    <p>People working in an office environment who must use a spreadsheet program</p>
+                <div>
+                    {courseData.audience.map((audience, index) => (
+                        <ul key={index}>
+                            <li>{audience}</li>
+                        </ul>
+                    ))}
                 </div>
             </div>
         </div>

@@ -14,10 +14,11 @@ const VideoLessonsSM = ({courses,  showCartButton }) => {
   return (
     <>
     {courses.slice(0, visibleCourses).map((course,index)=> (
-      <div key={index}>
+      <Link to={`/courPage/${course._id}`}>
+        <div key={index}>
         <div  className='p-5  border-black-200 border-b-2 flex justify-between'>
         <div className='flex'>
-            <div className='w-32 h-16 border border-gray-200 border-b-2'>
+            <div className='w-28 h-16 border border-gray-200 border-b-2'>
             <video src={`http://localhost:5000/${course.video}`} className='w-full h-full'></video>
             </div>
           <div>
@@ -33,13 +34,14 @@ const VideoLessonsSM = ({courses,  showCartButton }) => {
             <span className='text-gray-500 text-sm'>${course.originalPrice}</span>
         </div>
         {showCartButton ? (
-          <div>
-          <Link className='py-3 px-3 bg-black text-white font-bold border border-gray-300 mx-4 ' to={'/shoppingCart'}>Go to Cart</Link>
+          <div className='flex'>
+          <Link className='py-2 px-3 bg-black text-white font-bold border border-gray-300 mx-4 ' to={'/shoppingCart'}>Go to Cart</Link>
       </div>
         ) : (<></>)}
        </div>
     </div>
     </div>
+      </Link>
   ))}
   {
    courses.length > 5  && (

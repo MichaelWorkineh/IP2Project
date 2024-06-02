@@ -80,11 +80,10 @@ function Item({ course }) {
               <source src={`http://localhost:5000/${course.video}`} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-               {course.video}
                 </div>
                 <div className='p-1'>
                   <h1 className='font-bold'>{course.title}</h1>
-                  <span className='text-sm text-gray-500 text-black'>{course.instructor}Ayele</span>
+                  <span className='text-sm text-gray-500 text-black'>{course.instructor.userEmail}Ayele</span>
                   <div className='text-sm'>
                     <span className='text-red-600 font-bold'>{course.rating}</span>
                     <span> ({course.reviews})</span>

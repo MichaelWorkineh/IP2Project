@@ -32,7 +32,7 @@ const AddToCart = ({courseData,isCartOpen}) => {
 
     return (
     <div className='fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center overflow-y-auto'>
-        <div className=' w-[600px] bg-white z-999 overflow-y-auto'>
+        <div className=' w-[650px] bg-white z-999 overflow-y-auto'>
             <div className='flex justify-end'><button className='text-gray-500 text-xl place-self-end pr-5 pt-5' onClick={onClose}>X</button></div>
             <h1 className='font-bold p-2 pl-4 border-b border-gray-400'>Added to cart</h1>
             <VideoLessonsSM courses={[courseData]} showCartButton={isCartOpen}/>

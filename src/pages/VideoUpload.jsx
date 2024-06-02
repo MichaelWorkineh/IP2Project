@@ -18,11 +18,19 @@ const VideoUpload = () => {
     description: '',
     WhatYouLearn: '',
     audience: '',
-    category: '',
-    video: null
+    category: { main: '', sub: '' },
+    video: null,
+    tags: '', 
+    isFeatured: false 
   });
-  const categories = ['Programming Languages', 'Frontend Development', 'Backend Development', 'Web Development', 'Mobile Development'];
-
+  const categories = {
+    'Programming Languages': ['Python', 'JavaScript', 'Java'],
+    'Frontend Development': ['React', 'Vue', 'Angular'],
+    'Backend Development': ['Node.js', 'Django', 'Flask'],
+    'Web Development': ['Full Stack', 'MERN Stack'],
+    'Mobile Development': ['Flutter', 'React Native']
+  };
+  
 
   const [videoDescription, setVideoDescription] = useState({
     chapters: [],
@@ -42,11 +50,24 @@ const VideoUpload = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    if (name === 'mainCategory') {
+      setFormData({
+        ...formData,
+        category: { ...formData.category, main: value, sub: '' } // Reset subcategory when main changes
+      });
+    } else if (name === 'subCategory') {
+      setFormData({
+        ...formData,
+        category: { ...formData.category, sub: value }
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value
+      });
+    }
   };
+  
 
   const handleFileChange = (e) => {
     setFormData({
@@ -79,9 +100,6 @@ const VideoUpload = () => {
     setCurrentChapter({ timestamp: '', title: '', description: '' });
   };
 
-  
-
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -89,6 +107,8 @@ const VideoUpload = () => {
       for (let key in formData) {
         if (key === 'video' && formData.video) {
           data.append('video', formData.video);
+        } else if (key === 'category') {
+          data.append('category', JSON.stringify(formData[key]));
         } else {
           data.append(key, formData[key]);
         }
@@ -111,6 +131,7 @@ const VideoUpload = () => {
       alert("Error uploading course");
     }
   };
+
 
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4 border rounded-lg shadow-lg bg-white">
@@ -204,14 +225,34 @@ const VideoUpload = () => {
         <input type="file" id="video" name="video" onChange={handleFileChange} required className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-400" />
       </div>
       <div className="mb-4">
-        <label htmlFor="category" className="block text-sm font-bold mb-2">Category:</label>
-        <select id="category" name="category" value={formData.category} onChange={handleChange} required className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-400">
-          <option value="">Select Category</option>
-          {categories.map((category, index) => (
-            <option key={index} value={category}>{category}</option>
-          ))}
-        </select>
+        <label htmlFor="tags" className="block text-sm font-bold mb-2">Tags (comma-separated):</label>
+        <input type="text" id="tags" name="tags" value={formData.tags} onChange={handleChange} className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-400" />
       </div>
+      <div className="mb-4">
+        <label htmlFor="isFeatured" className="block text-sm font-bold mb-2">Featured Course:</label>
+        <input type="checkbox" id="isFeatured" name="isFeatured" checked={formData.isFeatured} onChange={(e) => setFormData({ ...formData, isFeatured: e.target.checked })} className="mr-2" />
+        <span className="text-sm">Check if this course is featured</span>
+      </div>
+      <div className="mb-4">
+      <label htmlFor="mainCategory" className="block text-sm font-bold mb-2">Main Category:</label>
+      <select id="mainCategory" name="mainCategory" value={formData.category.main} onChange={handleChange} required className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-400">
+        <option value="">Select Main Category</option>
+        {Object.keys(categories).map((mainCategory, index) => (
+          <option key={index} value={mainCategory}>{mainCategory}</option>
+        ))}
+      </select>
+    </div>
+    
+    <div className="mb-4">
+      <label htmlFor="subCategory" className="block text-sm font-bold mb-2">Sub Category:</label>
+      <select id="subCategory" name="subCategory" value={formData.category.sub} onChange={handleChange} required className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-400" disabled={!formData.category.main}>
+        <option value="">Select Sub Category</option>
+        {formData.category.main && categories[formData.category.main].map((subCategory, index) => (
+          <option key={index} value={subCategory}>{subCategory}</option>
+        ))}
+      </select>
+    </div>
+    
 
       <div className="text-center">
         <button type="submit" className="py-2 px-4 bg-blue-500 text-white rounded-md focus:outline-none hover:bg-blue-600">Upload Course</button>

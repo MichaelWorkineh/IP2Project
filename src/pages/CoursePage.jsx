@@ -126,7 +126,7 @@ const CoursePage = () => {
                 <Cart showContent={showContent} videos={videos} courseData={courseData} />
             </div>
             <div className='pl-32 w-[60%]'>
-                <WhatYouLearn />
+                <WhatYouLearn courseData={courseData}/>
                 <CourseContent courseData={courseData} />
                 <h1 className='font-3xl font-bold'>Students also bought</h1>
                 <VideoLessonsSM courses={courses} />
