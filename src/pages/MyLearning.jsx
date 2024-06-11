@@ -22,14 +22,14 @@ const MyLearning = () => {
     const fetchWishlist = async () => {
       try {
         const token = localStorage.getItem('firebaseToken');
-        const response = await axios.get('http://localhost:5000/wishlist', {
+        const response = await axios.get('http://localhost:5000/boughtCourses', {
           headers: {
             Authorization: `Bearer ${token}`
           }
         });
         setWishlist(response.data);
       } catch (error) {
-        console.error('Error fetching wishlist:', error);
+        console.error('Error fetching bought courses:', error);
       }
     };
 

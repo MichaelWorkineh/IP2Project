@@ -16,6 +16,7 @@ const HomePage = () => {
     const [isSticky, setIsSticky] = useState(false);
     const [isAbuse, setIsAbuse] = useState(false);
     const [showContent, setShowContent] = useState(0);
+    const courseInfo = useState(true);
 
     const toggleAbuse =()=> {
         setIsAbuse(!isAbuse);
@@ -87,15 +88,15 @@ const HomePage = () => {
         <div className='m-8'>
             <div className=''>
                 <h1 className='font-bold text-2xl'>New Courses</h1>
-                <LGVideoLesson courses = {newCourses}/>
+                <LGVideoLesson courses = {newCourses} courseInfo={courseInfo}/>
             </div>
             <div>
                 <h1 className='font-bold text-2xl'>Recommended Courses</h1>
-                <LGVideoLesson courses = {recommendedCourses}/>
+                <LGVideoLesson courses = {recommendedCourses} courseInfo={courseInfo}/>
             </div>
             <div>
               <h1 className='font-bold text-2xl'>Featured Courses</h1>
-              <LGVideoLesson courses = {featuredCourses}/>
+              <LGVideoLesson courses = {featuredCourses} courseInfo={courseInfo}/>
             </div>
         </div>
     </div>
