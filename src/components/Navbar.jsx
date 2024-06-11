@@ -1,14 +1,17 @@
 import React, {useState,useEffect} from 'react'
 import alarm from '../imgs/alarm.png'
 import heart from '../imgs/heart.png'
-import cart from '../imgs/cart.svg'
+import cartImage from '../imgs/cart.svg'
 import udemyLogo from '../imgs/UDMY_BIG.png'
 import { doSignOut } from '../firebase/auth'
 import { useAuth } from '../contexts/AuthProvider'
 import { Link } from 'react-router-dom'
 import { fetchUserData } from '../firebase/auth'
 import Categories from './Categories'
+import axios from 'axios'
 import { FiSearch } from 'react-icons/fi'
+import { useNavigate } from 'react-router-dom'
+
 
 const Navbar = () => {
     const {currentUser} = useAuth();
@@ -19,6 +22,10 @@ const Navbar = () => {
     const [activeCatg, setActiveCatag] = useState(false);
     const [activeBiss, setActiveBis] = useState(false);
     const [activeTech, setActiveTech] = useState(false);
+    const [cart, setCartItems] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
+    const cartNum = cart.length;
     let firstNameInitial = '';
     let lastNameInitial = '';
 
@@ -35,6 +42,30 @@ const Navbar = () => {
       }, [currentUser]);
 
       
+      useEffect(() => {
+        const fetchOrderlist = async () => {
+            try {
+                const token = localStorage.getItem('firebaseToken');
+                const response = await axios.get('http://localhost:5000/cart', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                setCartItems(response.data);
+               
+            } catch (error) {
+                console.error('Error fetching wishlist:', error);
+            }
+        };
+
+        fetchOrderlist();
+    }, []);
+
+    console.log(cart);
+    const handleSearch = () => {
+        navigate(`/searchpage?search=${searchQuery}`);
+      };
+
   const toggleAccMenu = () => {
     setActiveAccMenu(!activeAccMenu);
   };
@@ -77,11 +108,14 @@ const Navbar = () => {
                     <input
                         type='text'
                         placeholder='Search for anything'
-                        className='outline-none border-black border rounded-3xl w-[600px] h-12 text-base pl-12 bg-slate-100'
+                        className='outline-none border-black border rounded-3xl w-[600px] h-12 text-black pl-12 bg-slate-50 placeholder:text-black'
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        
                     />
-                    <FiSearch className='text-gray-500 absolute left-3' style={{ fontSize: '24px' }} />
+                    <button onClick={handleSearch}><FiSearch className=' absolute left-3 top-4' style={{ fontSize: '24px' }} /></button>
                     </div>
-                    <div   onMouseDown={toggleUdeBussiness} onMouseLeave={toggleUdeTech} className=' mt-5'>Udemy Bussiness</div>
+                    <div   onMouseOver={toggleUdeBussiness} onMouseLeave={toggleUdeBussiness} className=' mt-5 mx-5'>Udemy Bussiness</div>
                     {activeBiss ? (
                         <div  className="absolute right-96 top-20 mt-0 w-[270px] bg-white border border-gray-200 rounded-sm shadow-lg z-10">
                             <div>
@@ -91,7 +125,7 @@ const Navbar = () => {
                         </div>
                     ) : (<></>)}
                     
-                    <div  onMouseDown={toggleUdeTech} onMouseLeave={toggleUdeTech} className=' mt-5'>Tech on Udemy</div>
+                    <div  onMouseOver={toggleUdeTech} onMouseLeave={toggleUdeTech} className=' mt-5'>Tech on Udemy</div>
                     {activeTech ? (
                         <div className="absolute right-56 top-20 mt-0 w-64 bg-white border border-gray-200 rounded-sm shadow-lg z-10">
                             <div>
@@ -110,8 +144,10 @@ const Navbar = () => {
                         </Link>
                     </div>
                     <div className='mt-4 relative'>
-                        <img src={cart} alt="" className='w-10 h-8'/>
-                        <div className='absolute -top-1 -right-2 bg-purple-500 rounded-full px-2 py-1/4 text-white'>2</div>
+                        <Link to={'/shoppingCart'}>
+                            <img src={cartImage} alt="" className='w-10 h-8'/>
+                            <div className='absolute -top-1 -right-2 bg-purple-500 rounded-full px-2 py-1/4 text-white'>{cartNum}</div>
+                        </Link>   
                     </div>
                     <div className='w-6 h-6 mt-5 cursor-pointer'><img src={alarm} alt="" /></div>
                     <div className='text-base text-primary font-medium space-x-1 hidden lg:block mr-0'>
@@ -133,20 +169,17 @@ const Navbar = () => {
                                 </div>
                                 </div>
                             </li>
-                            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                                My Learning
-                            </li>
-                            <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                                My Cart
+                             <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                                <Link to={'/mylearning'}>My Learning</Link>
                             </li>
                             <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer border-b">
-                                WishList
+                                <Link to={'/myLearning?section=Wishlist'}>WishList</Link>
                             </li>
                             <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
-                                Public Profile
+                                <Link to={'/user'}>Public Profile</Link>
                             </li>
                             <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer border-b">
-                                Settings
+                                <Link to={'/user'}>Settings</Link>
                             </li>
                             <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-red-500" onClick={doSignOut}>
                                 Logout

@@ -19,7 +19,7 @@ const Cart = ({showContent, videos, courseData}) => {
     const [isCartOpen, setIsCartOpen] = useState(false);
     const {currentUser} = useAuth();
     const Id = currentUser ? currentUser.uid : null;
-    console.log(currentUser);
+    
    
     console.log(Id);
     const toggleVideo = () => {
@@ -49,6 +49,11 @@ const Cart = ({showContent, videos, courseData}) => {
             console.error('Error adding course to wishlist:', error);
             console.log(error);
         }
+    };
+    const handleBuyNow = async () => {
+        await addToCart();
+        const encodedCourseData = encodeURIComponent(JSON.stringify(courseData));
+        window.location.href = `/payment/checkout?courseData=${encodedCourseData}`;
     };
 
     const addToCart = async () => {
@@ -108,8 +113,8 @@ const Cart = ({showContent, videos, courseData}) => {
                     </button>
                     </div>
                 </div>
-                <button className='mt-0 border border-gray-400 p-3 m-2 font-bold'>
-                    <Link to={'/payment/checkout'} onClick={addToCart}>Buy Now</Link>
+                <button className='mt-0 border border-gray-400 p-3 m-2 font-bold' onClick={handleBuyNow}>
+                    Buy Now
                 </button>
                 <div className='flex justify-center text-sm'><p >30-Day Money-Back Guarantee</p></div>
             </div>

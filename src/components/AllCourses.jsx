@@ -9,9 +9,11 @@ import axios from 'axios'
 const AllCourses = ({courses}) => {
 
   return (
-    <div className='w-[90%] ml-14'>
+    <div className='w-[90%] ml-14 pt-0 relative'>
       <Reminder/>
-      <BoughtCourseVideo courses = {courses}/>
+      <div className=' -top-16'>
+          <BoughtCourseVideo courses = {courses} />
+      </div>
     </div>
   )
 }

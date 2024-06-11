@@ -1,13 +1,23 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const CheckoutCart = ({totalCourses, totalPrice, totalOrignalPrice}) => {
+const CheckoutCart = ({totalCourses, totalPrice, totalOrignalPrice,discount}) => {
+  const reducedPrice = totalPrice - totalOrignalPrice;
+  
+  
   return (
     <div className='justify-center pt-0 p-10'>
         <h1 className='font-bold text-gray-500 mb-2 ml-2'>Total: {totalCourses} courses</h1>
         <h1 className='font-bold text-4xl'>{totalPrice}</h1>
         <h1 className='text-gray-500'>{totalOrignalPrice}</h1>
-        <h1>87% off</h1>
-        <button className='w-full bg-purple-500 py-2 mt-2 text-white font-bold'>Checkout</button>
+        <h1>Discount {discount}</h1>
+          
+        <button className='w-full bg-purple-500 py-2 mt-2 text-white font-bold'>
+          <Link to={`/payment/checkout?totalCourses=${totalCourses}&totalPrice=${totalPrice}&originalPrice=${totalOrignalPrice}`}>
+            Checkout
+          </Link>
+        </button>
+
         <div className='p-2 border-t border-gray-400 mt-4'>
           <h1 className='font-bold'>Promotions</h1>
         </div>
