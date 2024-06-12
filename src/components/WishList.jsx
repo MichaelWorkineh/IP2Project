@@ -23,10 +23,26 @@ const WishList = () => {
     fetchWishlist();
   }, []);
 
+  const handleRemoveFromWishlist = async (courseId) => {
+    console.log("Course ID to be removed from wishlist:", courseId);
+    try {
+      const token = localStorage.getItem('firebaseToken');
+      await axios.delete(`http://localhost:5000/wishlist/remove/${courseId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+  
+      setWishlist(wishlist.filter(course => course._id !== courseId));
+    } catch (error) {
+      console.error('Error removing course from wishlist:', error);
+    }
+  };
+  
+
   return (
-    <div>
-      <h1>hellow</h1>
-      <LGVideoLesson courses={wishlist}/>
+    <div className='h-[400px] p-10'>
+      <LGVideoLesson courses={wishlist} handleRemoveFromWishlist={handleRemoveFromWishlist} fromWishlist={true}/>
     </div>
   )
 }
