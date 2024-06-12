@@ -3,7 +3,7 @@ import clock from '../imgs/clock.svg'
 
 const Reminder = () => {
   return (
-    <div className='border border-gray-400 m-16 p-4'>
+    <div className='border border-gray-400 m-10 mt-16 p-4'>
         <div className='flex justify-arround'>
                 <div className=' w-32 h-12 mt-4'>
                     <img src={clock} alt="" />
