@@ -49,5 +49,21 @@
     "description": "Explore advanced JavaScript concepts and techniques.",
     "audience": ["Web developers", "Frontend engineers"]
     
+  },{
+    "id": 4,
+    "image": "/image",
+    "title": "Google Sheets Masterclass",
+    "hours": "7.5 total hours",
+    "company": "Skill shares",
+    "Instructor": "Mark Lassoff",
+    "lastUpdated": "Updated 4/2024",
+    "rating": "4.8*",
+    "reviews": 2069,
+    "price": 13.99,
+    "originalPrice": 44.59,
+    "requirements": ["Basic computer skills"],
+    "description": "Master Google Sheets from beginner to advanced level.",
+    "audience": ["Office professionals", "Data analysts"]
+    
   }
 ]
